@@ -1,8 +1,8 @@
 use labyrinth::io;
 
-
-fn main() {
+#[test]
+fn can_read_csv() {
     let df = io::read_csv("data/mock_data.csv").expect("Failed to read CSV file");
 
-    println!("{:?}", df);
+    assert_eq!(df.shape(), (1000, 9));
 }
