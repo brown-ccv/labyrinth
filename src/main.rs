@@ -15,13 +15,13 @@ fn main() {
     let file_config = FileConfig::new(
         Path::new("data/mock_data.csv"),
         &column_action_map,
-        columns_to_rename,
+        &columns_to_rename,
         datetime_format,
     );
 
-    let raw_df = io::read_csv(file_config.filepath).expect("Failed to read CSV file");
+    let mut raw_df = io::read_csv(file_config.filepath).expect("Failed to read CSV file");
 
-    let mut df = deid::deid_dataframe(&raw_df, &column_action_map);
+    let mut df = deid::deid_dataframe(&mut raw_df, &column_action_map, &columns_to_rename);
 
     println!("{:?}", df);
 

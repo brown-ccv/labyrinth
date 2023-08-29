@@ -13,7 +13,7 @@ fn test_create_fileconfig() {
     let file_config = FileConfig::new(
         Path::new("config/mock_data.yml"),
         &column_action_map,
-        columns_to_rename,
+        &columns_to_rename,
         datetime_format,
     );
 
