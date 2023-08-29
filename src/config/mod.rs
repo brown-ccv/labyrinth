@@ -14,7 +14,7 @@ pub struct FileConfig<'a> {
     pub filename: &'a str,
     pub filepath: &'a Path,
     pub column_action_map: &'a HashMap<String, Action>,
-    pub columns_to_rename: HashMap<String, String>,
+    pub columns_to_rename: &'a HashMap<String, String>,
     pub datetime_format: String,
 }
 
@@ -22,7 +22,7 @@ impl<'a> FileConfig<'a> {
     pub fn new(
         filepath: &'a Path,
         column_action_map: &'a HashMap<String, Action>,
-        columns_to_rename: HashMap<String, String>,
+        columns_to_rename: &'a HashMap<String, String>,
         datetime_format: String,
     ) -> Self {
         let filename = filepath.file_name().unwrap().to_str().unwrap();
