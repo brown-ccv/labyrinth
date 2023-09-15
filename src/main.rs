@@ -5,9 +5,10 @@ use std::path::Path;
 
 fn main() {
     let mut column_action_map = HashMap::new();
-    column_action_map.insert("id".to_owned(), Action::Remove);
-    column_action_map.insert("ip_address".to_owned(), Action::Remove);
-
+    column_action_map.insert("id".to_owned(), Action::Hash);
+    column_action_map.insert("ip_address".to_owned(), Action::Hash);
+    column_action_map.insert("last_name".to_owned(), Action::Remove);
+    
     let mut columns_to_rename = HashMap::new();
     columns_to_rename.insert("first_name".to_string(), "firstname".to_string());
 
@@ -20,6 +21,7 @@ fn main() {
     );
 
     let mut raw_df = io::read_csv(file_config.filepath).expect("Failed to read CSV file");
+    println!("{:?}", raw_df);
 
     let mut df = deid::deid_dataframe(&mut raw_df, &column_action_map, &columns_to_rename);
 
