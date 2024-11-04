@@ -8,7 +8,7 @@ fn main() {
     column_action_map.insert("id".to_owned(), Action::Hash);
     column_action_map.insert("ip_address".to_owned(), Action::Hash);
     column_action_map.insert("last_name".to_owned(), Action::Remove);
-    
+
     let mut columns_to_rename = HashMap::new();
     columns_to_rename.insert("first_name".to_string(), "firstname".to_string());
 

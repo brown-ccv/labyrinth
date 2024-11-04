@@ -25,9 +25,7 @@ fn test_drop_columns_from_dataframe() {
     let df = deid::deid_dataframe(&mut raw_df, &column_action_map, &columns_to_rename);
 
     assert!(df.shape().1 == 7);
-
 }
-
 
 #[test]
 fn test_rename_columns() {

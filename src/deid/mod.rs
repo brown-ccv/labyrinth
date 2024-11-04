@@ -85,8 +85,8 @@ fn hash_value(input: AnyValue) -> Result<String> {
         AnyValue::Float64(_) => format!("{:?}", input.try_extract::<f64>().unwrap()),
         AnyValue::Float32(_) => format!("{:?}", input.try_extract::<f32>().unwrap()),
         AnyValue::Utf8(_) => input.get_str().unwrap().to_string(),
-        _ => "".to_string(), 
-    }; 
+        _ => "".to_string(),
+    };
 
     println!("{:?}", &input_str);
 
